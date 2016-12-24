@@ -129,6 +129,25 @@
         
     }];
     [self.testLb pop_addAnimation:anBasic forKey:@"countdown"];
-
+    
+ # 5.透明度动画（常用于做蒙版）
+ 
+     POPSpringAnimation *showAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewAlpha];
+    showAnimation.toValue = @1;
+    showAnimation.springSpeed = 12;
+    showAnimation.springBounciness = 4;
+    [showAnimation setCompletionBlock:^(POPAnimation *anim, BOOL finish) {
+    }];
+    [self.maskBGView pop_addAnimation:showAnimation forKey:nil];
+    
+    // background的透明度
+    POPSpringAnimation *showAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewBackgroundColor];
+    showAnimation.fromValue = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.f];
+    showAnimation.toValue = [UIColor colorWithRed:0 green:0 blue:0 alpha:.3f];
+    showAnimation.springSpeed = 12;
+    showAnimation.springBounciness = 4;
+    [showAnimation setCompletionBlock:^(POPAnimation *anim, BOOL finish) {
+    }];
+    [self.maskBGView pop_addAnimation:showAnimation forKey:nil];
     
     
