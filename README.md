@@ -109,4 +109,26 @@
     animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0, 0)];
     [self.collectionView pop_addAnimation:animation forKey:nil];
     
+# 4.POP 自定义动画 （可做计时器使用也可以做金融类余额的数字变动）
+
+ POPAnimatableProperty *prop = [POPAnimatableProperty propertyWithName:@"countdown" initializer:^(POPMutableAnimatableProperty *prop) {
+ 
+        prop.writeBlock = ^(id obj, const CGFloat values[]) {
+            UILabel *lable = (UILabel*)obj;
+            lable.text = [NSString stringWithFormat:@"￥%.2f",values[0]];
+        };
+    }];
+    
+    POPBasicAnimation *anBasic = [POPBasicAnimation linearAnimation];   //秒表当然必须是线性的时间函数
+    anBasic.property = prop;    //自定义属性
+    anBasic.fromValue = @(0);   //从0开始
+    anBasic.toValue = @(10);  //180秒
+    anBasic.duration = 10;    //持续.5
+    anBasic.beginTime = CACurrentMediaTime() + .0f;    //延迟1秒开始
+    [anBasic setCompletionBlock:^(POPAnimation *animation, BOOL flag) {
+        
+    }];
+    [self.testLb pop_addAnimation:anBasic forKey:@"countdown"];
+
+    
     
