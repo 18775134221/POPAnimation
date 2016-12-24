@@ -100,3 +100,13 @@
 
     }];
 }
+
+# 3.返回顶部的弹性动画（常用于UITableView 和 UICollectionView）
+
+    POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPScrollViewContentOffset];
+    animation.springSpeed = 10;
+    animation.springBounciness = 8;
+    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0, 0)];
+    [self.collectionView pop_addAnimation:animation forKey:nil];
+    
+    
