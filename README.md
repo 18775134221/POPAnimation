@@ -1,7 +1,7 @@
 
 # 1.点赞动画（先缩小后放大）
 
-// 缩小并还原动画
+## 缩小并还原动画
 
 -(void) scaleSmallBase {
 
@@ -10,7 +10,7 @@
     [self.buttion.layer pop_addAnimation:scaleSmall forKey:nil];
 }
 
-// 还原
+## 还原
 
 -(void) scaleBackBase {
 
