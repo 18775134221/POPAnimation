@@ -130,7 +130,7 @@
     }];
     [self.testLb pop_addAnimation:anBasic forKey:@"countdown"];
     
- # 5.透明度动画（常用于做蒙版）
+# 5.透明度动画（常用于做蒙版）
  
      POPSpringAnimation *showAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewAlpha];
     showAnimation.toValue = @1;
