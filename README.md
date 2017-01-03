@@ -148,5 +148,17 @@
         [showAnimation setCompletionBlock:^(POPAnimation *anim, BOOL finish) {
         }];
         [self.maskBGView pop_addAnimation:showAnimation forKey:nil];
+        
+ # 6.线条上下移动的动画（常见于扫码）
+     /// 动画
+        @objc private func startScanAnimation() {
+            let animation = CABasicAnimation.init(keyPath: "transform.translation.y")
+            animation.duration = 1.5
+            animation.repeatCount = MAXFLOAT
+            animation.fromValue = (-4)
+            animation.toValue = (self.scanRect?.height)! + 4.0
+            self.scanLineImageView?.layer.add(animation, forKey: "JKQRScanAnimationKey")
+        }
+
     
     
