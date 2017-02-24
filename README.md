@@ -150,6 +150,7 @@
         [self.maskBGView pop_addAnimation:showAnimation forKey:nil];
         
  # 6.线条上下移动的动画（常见于扫码）
+ ```
      /// 动画
         @objc private func startScanAnimation() {
             let animation = CABasicAnimation.init(keyPath: "transform.translation.y")
@@ -159,6 +160,7 @@
             animation.toValue = (self.scanRect?.height)! + 4.0
             self.scanLineImageView?.layer.add(animation, forKey: "JKQRScanAnimationKey")
         }
+   ```
         
   # 7.cell展示的动画
   ```
