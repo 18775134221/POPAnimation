@@ -184,5 +184,24 @@
     }
 }
 ```
+
+# 8.UICollectionViewCell展示动画(在cell将要展示的代理方法上使用)
+```
+- (void) cellWillShowAnimation:(GFBWelcomeCell *) cell {
+    POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+    scaleAnimation.duration           = 0.3f;
+    scaleAnimation.toValue            = [NSValue valueWithCGPoint:CGPointMake(0.8, 0.8)];
+    [scaleAnimation setCompletionBlock:^(POPAnimation *animation, BOOL flag) {
+        POPSpringAnimation *scaleAnimationF = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        scaleAnimationF.toValue             = [NSValue valueWithCGPoint:CGPointMake(1.0, 1.0)];
+        scaleAnimationF.velocity            = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
+        scaleAnimationF.springBounciness    = 20.f;
+        [cell.bootImageView pop_addAnimation:scaleAnimationF forKey:@"scaleAnimation"];
+        [cell.startBtn pop_addAnimation:scaleAnimationF forKey:@"scaleAnimation"];
+    }];
+    [cell.bootImageView pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+    [cell.startBtn pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+}
+```
     
     
