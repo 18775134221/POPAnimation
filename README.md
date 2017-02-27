@@ -217,5 +217,15 @@
     keyAnimaion.repeatCount = MAXFLOAT;
     [self.iconImageView.layer addAnimation:keyAnimaion forKey:nil];
 ```
+```
+-(void)shakeAnimation:(UIView *)shakeView {
+    CABasicAnimation *shakeAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    shakeAnimation.duration = 0.25f;
+    shakeAnimation.fromValue = [NSNumber numberWithFloat:-5];
+    shakeAnimation.toValue = [NSNumber numberWithFloat:5];
+    shakeAnimation.autoreverses = YES;
+    [shakeView.layer addAnimation:shakeAnimation forKey:nil];
+}
+```
     
     
