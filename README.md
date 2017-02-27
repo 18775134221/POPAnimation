@@ -1,16 +1,19 @@
 
 # 1.点赞动画（先缩小后放大）
 
-## 缩小并还原动画
-
+###### 缩小并还原动画
+eg:
+```
     -(void) scaleSmallBase {
         POPBasicAnimation *scaleSmall = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
         scaleSmall.toValue = [NSValue valueWithCGPoint:CGPointMake(0.90, 0.90)];
         [self.buttion.layer pop_addAnimation:scaleSmall forKey:nil];
     }
+```
 
-## 还原
-
+###### 还原
+eg:
+```
     -(void) scaleBackBase {
 
         POPBasicAnimation *scaleBack = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
@@ -34,8 +37,11 @@
         [self.buttion.layer pop_addAnimation:anSpring forKey:nil];
 
     }
+```
 
 # 2.按钮浮动效果
+eg:
+```
 
     -(void) setupAnimationDuration:(CAKeyframeAnimation*)keyAnimation btn:(UIButton *)btn time:(NSTimeInterval)timeInterval {
 
@@ -99,6 +105,7 @@
 
         }];
     }
+```
 
 # 3.返回顶部的弹性动画（常用于UITableView 和 UICollectionView）
 
@@ -149,7 +156,7 @@
         }];
         [self.maskBGView pop_addAnimation:showAnimation forKey:nil];
         
- # 6.线条上下移动的动画（常见于扫码）
+# 6.线条上下移动的动画（常见于扫码）
  ```
      /// 动画
         @objc private func startScanAnimation() {
@@ -162,7 +169,7 @@
         }
    ```
         
-  # 7.cell展示的动画
+# 7.cell展示的动画
   ```
   - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     
