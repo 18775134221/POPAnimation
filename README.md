@@ -203,5 +203,19 @@
     [cell.startBtn pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
 }
 ```
+
+# 9.图片抖动
+```
+    //创建动画
+    CAKeyframeAnimation * keyAnimaion = [CAKeyframeAnimation animation];
+    keyAnimaion.keyPath = @"transform.rotation";
+    keyAnimaion.values = @[@(-10 / 180.0 * M_PI),@(10 /180.0 * M_PI),@(-10/ 180.0 * M_PI)];//度数转弧度
+
+    keyAnimaion.removedOnCompletion = NO;
+    keyAnimaion.fillMode = kCAFillModeForwards;
+    keyAnimaion.duration = 0.3;
+    keyAnimaion.repeatCount = MAXFLOAT;
+    [self.iconImageView.layer addAnimation:keyAnimaion forKey:nil];
+```
     
     
