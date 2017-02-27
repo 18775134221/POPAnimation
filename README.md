@@ -108,16 +108,20 @@ eg:
 ```
 
 # 3.返回顶部的弹性动画（常用于UITableView 和 UICollectionView）
+eg:
+```
 
     POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPScrollViewContentOffset];
     animation.springSpeed = 10;
     animation.springBounciness = 8;
     animation.toValue = [NSValue valueWithCGPoint:CGPointMake(0, 0)];
     [self.collectionView pop_addAnimation:animation forKey:nil];
+ ```
     
 # 4.POP 自定义动画 （可做计时器使用也可以做金融类余额的数字变动）
 
-     POPAnimatableProperty *prop = [POPAnimatableProperty propertyWithName:@"countdown" initializer:^(POPMutableAnimatableProperty *prop) {
+```
+  POPAnimatableProperty *prop = [POPAnimatableProperty propertyWithName:@"countdown" initializer:^(POPMutableAnimatableProperty *prop) {
 
             prop.writeBlock = ^(id obj, const CGFloat values[]) {
                 UILabel *lable = (UILabel*)obj;
@@ -155,8 +159,10 @@ eg:
         [showAnimation setCompletionBlock:^(POPAnimation *anim, BOOL finish) {
         }];
         [self.maskBGView pop_addAnimation:showAnimation forKey:nil];
+ ```
         
 # 6.线条上下移动的动画（常见于扫码）
+eg:
  ```
      /// 动画
         @objc private func startScanAnimation() {
@@ -170,6 +176,7 @@ eg:
    ```
         
 # 7.cell展示的动画
+eg:
   ```
   - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     
@@ -193,6 +200,7 @@ eg:
 ```
 
 # 8.UICollectionViewCell展示动画(在cell将要展示的代理方法上使用)
+eg:
 ```
 - (void) cellWillShowAnimation:(GFBWelcomeCell *) cell {
     POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
@@ -212,6 +220,7 @@ eg:
 ```
 
 # 9.图片抖动
+eg:
 ```
     //创建动画
     CAKeyframeAnimation * keyAnimaion = [CAKeyframeAnimation animation];
