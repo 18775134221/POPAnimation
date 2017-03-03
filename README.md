@@ -257,6 +257,11 @@ eg:
         self.tableViewLoadData = YES;
         [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
     } afterDelaySecs:0.25f];
+    
+    #pragma mark -UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.isTableViewLoadData ? self.dataSource.count:0;
+}
 ```
     
     
