@@ -243,5 +243,20 @@ eg:
     [shakeView.layer addAnimation:shakeAnimation forKey:nil];
 }
 ```
+
+# 10.UITableView下摆的动画
+主线程上延时调用
+```
+    [GCDQueue executeInMainQueue:^{
+        // Load data.
+        NSMutableArray *indexPaths = [NSMutableArray array];
+        for (int i = 0; i < self.dataSource.count; i++) {
+            
+            [indexPaths addObject:[NSIndexPath indexPathForItem:i inSection:0]];
+        }
+        self.tableViewLoadData = YES;
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+    } afterDelaySecs:0.25f];
+```
     
     
